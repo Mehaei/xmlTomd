@@ -2,7 +2,7 @@
 # @Author: Mehaei
 # @Date:   2019-11-13 10:21:20
 # @Last Modified by:   Mehaei
-# @Last Modified time: 2019-11-14 14:06:04
+# @Last Modified time: 2019-11-18 11:03:04
 
 import os
 import re
@@ -130,5 +130,6 @@ class XmlToMd(object):
 
 if __name__ == "__main__":
     xml_file_list = sys.argv[1:]
+    # xml_file_list = ["test.xml"]
     xmltomd = XmlToMd(xml_file_list)
     xmltomd.start_work()

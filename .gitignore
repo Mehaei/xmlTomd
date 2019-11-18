@@ -105,3 +105,4 @@ venv.bak/
 /md_data
 *.xml
 .DS_Store
+/md_data_bak

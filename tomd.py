@@ -89,7 +89,10 @@ class Element(object):
 
     def __str__(self):
         wrapper = MARKDOWN.get(self.tag)
-        self._result = '{}{}{}'.format(wrapper[0], self.content, wrapper[1])
+        if self.tag == "block_code" and (r"{{" in self.content or r"}}" in self.content or "{%" in self.content or "%}" in self.content):
+            self._result = '{}{}{}'.format("\n{% raw %}" + wrapper[0], self.content, wrapper[1] + "{% endraw %}\n")
+        else:
+            self._result = '{}{}{}'.format(wrapper[0], self.content, wrapper[1])
         return self._result
 
     def parse_inline(self):
@@ -112,6 +115,7 @@ class Element(object):
             else:
                 wrapper = MARKDOWN.get(tag)
                 self.content = re.sub(pattern, '{}\g<1>{}'.format(wrapper[0], wrapper[1]), self.content)
+
         self.content = self.replace_char_entity(self.content)
 
     def replace_char_entity(self, html_str):
