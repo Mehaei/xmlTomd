@@ -3,7 +3,7 @@
 # @Author: 胖胖很瘦
 # @Date: 2025-07-28 16:57:12
 # @LastEditors: 胖胖很瘦
-# @LastEditTime: 2025-07-30 18:07:49
+# @LastEditTime: 2025-08-06 10:44:00
 
 # -*- coding: utf-8 -*-
 # Unified Markdown Crawler: WeChat + XML (for Jekyll)
@@ -63,7 +63,7 @@ class BaseMarkdownCrawler:
         return md5_val[:8]
 
     def get_proxies(self):
-        ip = "http://127.0.0.1:8888"
+        ip = "http://127.0.0.1:7890"
         return {"http": ip, "https": ip}
 
 
@@ -817,5 +817,6 @@ if __name__ == "__main__":
     pid_list = ["0zd3t7k9CYcwTLevh0KFHw",
         "Fi6qy3qG99E7tRilv6Eimg",
         "8YvoSP_1H3ffc6dVVfRDlw"]
-    wx_crawler = WeChatArticleCrawler(download_images=True)
+    pid_list = ["C75Haa47Oeq5DsPwA0BMSw", "t27RQEsrYJzjxEJr4PWgMA"]
+    wx_crawler = WeChatArticleCrawler(blog_root="../source", download_images=True)
     wx_crawler.crawl_batch(pid_list)
